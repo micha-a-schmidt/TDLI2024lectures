@@ -1,9 +1,9 @@
-#import "@preview/touying:0.5.2": *
+#import "@preview/touying:0.6.1": *
 #import "@preview/xarrow:0.3.1": xarrow
-#import "@preview/cetz:0.2.2": canvas, draw, decorations
-#import "@preview/fletcher:0.5.1" as fletcher: diagram, node, edge
+#import "@preview/cetz:0.3.4": canvas, draw, decorations
+#import "@preview/fletcher:0.5.7" as fletcher: diagram, node, edge
 #import "@preview/pinit:0.2.0": *
-#import "@preview/physica:0.9.3" : *
+#import "@preview/physica:0.9.5" : *
 
 #import themes.university: *
 
