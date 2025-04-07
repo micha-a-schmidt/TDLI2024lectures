@@ -1,0 +1,478 @@
+#import "header.typ":*
+
+
+= Radiative neutrino mass models
+#slide[
+- #text(hl1)[Neutrino masses may be exactly zero at tree level and are only generated via loop corrections.]
+#pause
+- This results in naturally small neutrino masses due to
+  - loop factors of $(16 pi)^(-L)$
+  - additional (Yukawa) couplings
+#pause
+- #text(hl2)[The new particles are generally lighter and might be observed in collider experiments.]
+- It opens up a large number of possibilities
+  - Difficult to cover the theory space
+  - more complicated than seesaw models
+  - #text(hl3)[rich phenomenology]
+  - easier to verify or falsify
+  - possible connections to 
+    - dark matter, 
+    - quark flavour physics
+    - matter-antimatter asymmetry
+#place(bottom+right,image("pandora.png",width:10cm))
+#box(fill: hl3b,inset:5pt,radius:5pt, [How many loops should we consider?])
+#pause
+$arrow.r$ up to 3 loops
+]
+
+== Zee model
+#slide[
+#grid(columns:(2fr,1fr),inset:5pt, 
+[ 
+  - Two new scalars: 
+    - singly charged scalar $h^+ tilde (1,1,1)$
+    - second electroweak doublet scalar $Phi tilde (1,2,1/2)$
+$ - cal(L) supset overline(L^c) #pin(1)bold(f)#pin(2) epsilon L h+ overline(e_R) Y_2  Phi^dagger L + mu h^(+*) H Phi $
+#pinit-highlight(1,2)
+#pinit-point-from(1)[$f=-f^T$]
+#box(fill:luma(230),inset:5pt,radius:5pt,width:6cm,[$Delta L=2$ in presence of $bold(f)$, $Y_2$, $mu$, $M_e$])
+], image("Zee.png"))
+  #pause
+  - Without loss of generality $expval(Phi)=0$
+  $ m_nu = - sin(2 phi)/(16 pi^2) ( bold(f) M_e Y_2 + Y_2^T M_e bold(f)^T) ln(m_(2)^2/m_(1)^2) 
+  #h(1cm)"with"#h(1cm)
+  sin(2phi) tilde.eq (sqrt(2) v mu)/(m_2^2-m_1^2)
+  $
+  #text(gray)[with $M_e=diag$, charged scalar masses $m_i$]
+- Simplest variant (Zee-Wolfenstein model) with $Z_2$ symmetry ruled out
+]
+
+== Models with singly-charged scalar 
+#slide[
+  - singly charged scalar $h tilde (1,1,1)$ has antisymmetric Yukawa interaction $overline(L^c) bold(f) epsilon L h$
+
+  - #text(hl3)[$f$ has a zero eigenvalue with eigenvector $v_alpha = epsilon_(alpha beta gamma) f_(beta gamma)$.]
+  // since $ f_(alpha beta) v_beta = f_(alpha beta) epsilon^(beta gamma delta) f_(gamma delta)$
+
+- If one of these lepton doublets is an external leg and neutrino mass is described by
+#grid(columns: (2fr,3fr),inset:10pt, image("singly-charged3b.png",width:100%), box(fill:hl2b,inset:5pt,radius:5pt,[
+$m_nu = X f - f X^T$ \
+ where $X$ describes the gray blob.
+]))
+#pause
+- The zero eigenvalue implies 
+$ 
+0 = v^T m_nu v = v^T U_"PMNS"^* m_nu^diag U^dagger_"PMNS" v = (sqrt(m_nu^diag) U_"PMNS"^dagger v)^T (sqrt(m_nu^diag) U_"PMNS"^dagger v) equiv w^T w
+$
+- one constraint on $bold(f)$ from low energy parameters irrespective of other UV physics 
+
+]
+
+#slide[
+  - singly charged scalar $h tilde (1,1,1)$ has antisymmetric Yukawa interaction $overline(L^c) bold(f) epsilon L h$
+
+  - #text(hl3)[$f$ has a zero eigenvalue with eigenvector $v_alpha = epsilon_(alpha beta gamma) f_(beta gamma)$.]
+  // since $ f_(alpha beta) v_beta = f_(alpha beta) epsilon^(beta gamma delta) f_(gamma delta)$
+
+- If one of these lepton doublets is an external leg and neutrino mass is described by
+#image("singly-charged2.png",width:100%)
+#grid(columns: (1fr,1fr), inset:10pt, box(fill:hl2b,inset:5pt,radius:5pt,[
+*linear*: $m_nu = X f - f X^T$ \
+ where $X$ describes the gray blob.
+
+*constraint*
+#text(size:18pt)[$ 
+0 = (sqrt(m_nu^diag) U_"PMNS"^dagger v)^T (sqrt(m_nu^diag) U_"PMNS"^dagger v) 
+$]
+
+]),[
+#pause
+#text(hl1)[
+  *quadratic*: $m_nu = f S f$
+with symmetric $S$]
+- Zero eigenvalue implies
+$ 
+0 = m_nu v  
+#h(5mm)arrow.r #h(5mm)
+m_nu^diag U_"PMNS"^dagger v = 0
+$
+- #text(hl3)[two conditions] on $bold(f)$ independent of other UV physics.
+
+
+])
+]
+
+
+#slide[
+#image("singly-charged-plot.png")
+#place(bottom+right,box(fill:luma(230),inset:8pt, radius:5pt,$y_h equiv f$))
+#place(bottom+left,dy:3mm,box(fill:hl3b,inset:8pt, radius:5pt,[
+  - overall scale undetermined
+  - quadratic case (brown) very constrained]))
+#place(bottom+right,dx:-3cm,dy:3mm,box(fill:luma(230),inset:8pt, radius:5pt,[
+  #set align(left)
+  - black (blue) $g_tau/g_e$ explained at $3(2)sigma$
+  - red: Cabibbo angle anomaly]))
+]
+
+
+== Model with singly-charged scalar -- quadratic case
+#slide[
+#grid(columns: (1.2fr,1fr),inset:10pt,[
+  
+  - neutrino mass $m_nu = f S f$ #h(5mm)#text(gray)[with symmetric $S$]
+
+- #text(hl3)[two conditions] on $bold(f)$:#h(3mm) $m_nu^diag U_"PMNS"^dagger v = 0$
+
+],image("singly-charged4b.png",width:100%)
+)
+#v(-1cm)$ 
+f^(e tau)/f^(mu tau) &= (t_(12)c_(23) + s_(13) s_(23) e^(i delta))/c_(13) #h(3cm)
+f^(e mu)/f^(mu tau) &= (t_(12)s_(23) - s_(13) c_(23) e^(i delta))/c_(13) 
+$
+
+
+//]
+
+//== Zee-Babu model
+//#slide[
+#pause
+#box(fill:hl2b,inset:10pt,radius:5pt, 
+[*Zee-Babu model*
+#grid(columns: (3fr,2fr), inset:5pt, 
+[ - example for quadratic case
+$ 
+-cal(L) = overline(L^c) f epsilon L h + overline(e_R^c) g e_R k^(++) + mu (k^(++))^dagger h^+ h^+ 
+$
+- neutrino mass approximately given by
+$
+m_nu tilde.eq - mu/(48 pi^2 M^2) f M_e g^dagger M_e f
+$
+],image("ZeeBabu.png")
+)
+])
+]
+
+
+
+
+
+== Radiative seesaw model -- scotogenic model
+#slide[
+
+#grid(columns: (2fr,1fr),inset:10pt,
+[
+- additional particles 
+  - SM singlet fermions $N tilde (1,1,0)_-$
+  - electroweak doublet scalar $eta tilde (1,2,1/2)_-$
+- forbid seesaw contribution using $Z_2$ symmetry
+$ 
+Z_2:#h(1cm) 
+N arrow.r -N 
+#h(1cm)"and"#h(1cm) 
+eta arrow.r -eta
+$
+],image("scotogenic.png",width:100%))
+#pause
+- Lagrangian #h(2cm) $-cal(L) supset 
+1/2 N^T C M N 
++ overline(N) Y L epsilon eta 
++lambda_5/2 (H^dagger eta)^2 +hc
+$
+#pause
+- neutrino mass: 
+$
+(m_nu)_(i j) = 1/(32 pi^2) Y_(k i) Y_(k j) M_k 
+[
+m_R^2/(m_R^2-M_k^2)ln(m_R^2/M_k^2)
+-m_I^2/(m_I^2-M_k^2)ln(m_I^2/M_k^2)
+]
+$
+- requires scalar mass splitting $m_R != m_I$ :#h(1cm)#text(gray)[with $m_(R,I)^2 = m_eta^2+1/2(lambda_3+lambda_4 plus.minus lambda_5) v^2$]
+#pause
+- lightest $Z_2$-odd particle is stable
+  - either fermionic DM $N$ 
+  - or scalar DM $eta^0_(R,I)$ 
+#pause
+#place(bottom+right,box(fill:hl3b,inset:10pt,radius:5pt,width:14cm,[
+    The radiative seesaw model is also often called scoto-genic ("created from darkness") model.]))
+
+]
+
+= Systematic approaches 
+
+
+== Loop-level UV completions of Weinberg operator
+
+#slide[
+#grid(columns:(1fr,1.1fr),inset:10pt,[ 
+
+Bonnet+ [1204.5862] identified *six viable 1-loop topologies* for Weinberg operator
+  #image("topologies-1loop.png",width:100%)
+#uncover("2-",place(top+left,dy:2cm,rect(fill:hl1b,width:100%,height:8cm,none)))
+  ],[
+ - exclude topologies which necessarily are accompanied by tree level neutrino masses
+
+ - #text(hl1)[bottom two topologies T4-2-i, T4-3-i don't work either, require symmetry, no viable model known $arrow.r.double$ 4 viable topologies, e.g. ]
+   - Zee model -- T1-ii
+   - scotogenic model -- T3
+
+- general study enabled to systematically consider variants of scotogenic model, #text(gray)[see Restrepo+ [1308.3655] ]
+
+- topologies exist for 
+  - 2-loop #text(gray)[Aristazabal+ [1411.7038]  (incl loop integrals)] and 
+  - 3-loop #text(gray)[Cepedello+ [1807.00629]] 
+  ])
+
+]
+
+
+
+== SMEFT operators with $Delta L=2$
+#slide[
+*Which operators are $Delta L=2$?* #h(2cm) #text(gray)[Kobach [1604.05726]]
+#pause
+- We use LH 2-component Weyl spinors $f=Q, L, u, d, e$ and daggered spinors $f^dagger$
+- Hypercharge conservation #h(1cm)#text(gray)[$Y_f$ hypercharge of $f$]
+#text(size:18pt)[$
+0&=sum_f 2 Y_f (N_f- N_(f^dagger)) \
+&=
+1/3 (N_Q-N_(Q^dagger))
+-4/3 (N_u-N_(u^dagger))
++2/3(N_d-N_(d^dagger))
+-(N_L-N_(L^dagger))
++2(N_e-N_(e^dagger))
++(N_H-N_(H^dagger))
+$]
+#text(gray)[
+  - non-Abelian gauge groups SU(3) $times$ SU(2) don't result in new constraints
+  $
+  1/3(N_Q + N_(d^dagger)+N_(u^dagger)) - 1/3(N_(Q^dagger) + N_d + N_u) in & bb(Z) \
+  (N_Q - N_(Q^dagger)) -3(N_L - N_(L^dagger)) + (N_H - N_(H^dagger)) in & 2 bb(Z) \
+  $ 
+]
+#pause
+- Lorentz invariance #h(1cm) #text(gray)[$N_D$ is number of covariant derivatives]
+$
+N_D "even" arrow.l.r.double
+sum_(f!=H) N_f "even"
+and
+sum_(f!=H) N_(f^dagger) "even"
+$
+]
+
+#slide[
+  - Lepton and baryon number 
+  $ 
+  Delta L & = (N_L -N_(L^dagger)) - ( N_e - N_(e^dagger))  in bb(Z) \ 
+  Delta B & = 1/3 (N_Q +N_(u^dagger) + N_(d^dagger)) - 1/3 (N_(Q^dagger) + N_u + N_d)  in bb(Z) 
+  $
+  - Operator dimension #h(1cm) #text(gray)[$X$ field strength tensor]
+  $
+  d = N_H + N_(H^dagger) + N_D + 2 N_X + 3/2 sum_f N_f
+  $
+  - Using hypercharge condition and definitions of $Delta B$ and $Delta L$, we find
+  #text(size:18pt)[$
+  d = #pin(1)3 (N_(Q^dagger) -N_(u^dagger) + N_(d^dagger) + N_(L^dagger) + N_(e^dagger)) + N_D#pin(2) + 6N_u  - 2 N_H + 4 N_(H^dagger) + 2N_X + 3(#pin(3) 1/2 Delta B + 3/2 Delta L #pin(4) ) 
+  $]
+  #pinit-highlight(1,2,fill:hl1b)
+  #pinit-highlight(3,4,fill:hl3b)
+ #v(-3mm) 
+    - Green highlighted part is always even, since  $N_D "even" arrow.l.r.double sum_f N_(f^dagger) "even"$ 
+ #v(-3mm) 
+  #grid(columns: (10cm,1fr),box(fill:hl3b,inset:10pt,radius:5pt,
+  [$
+  d "even" arrow.l.r.double 1/2 (Delta B - Delta L) "even"
+  $]),[
+In particular for $Delta B=0$,\ 
+$d "even" arrow.r.l.double Delta L/2 "even"$ implies #text(hl1)[$Delta L = 2 arrow.r d "odd"$]  ])
+]
+
+
+== $Delta L=2$ operators
+#slide[
+ #grid(columns: (7cm,1fr),inset:5pt,text(size:18pt)[
+*Weinberg-like operators*
+$
+O_1 &= L^i H^j epsilon_(i j) L^k H^l epsilon_(k l) \
+O_1^prime & = O_1 H^dagger H \
+O_1^(prime prime) & = O_1 (H^dagger H)^2 \
+O_1^((n)) & = O_1 (H^dagger H)^n \
+$
+
+*Zee model*
+#image("Zee.png",width:80%)
+ ],image("DL2ops.svg", width: 100%))
+#place(bottom+right,dx:1cm,image("O2t.png",width:5cm))
+#place(bottom+right,dx:-1cm,text(hl3)[$O_2$])
+]
+
+== Effective field theory
+#slide[ 
+#grid(columns:(1fr,6cm),inset:5pt,image("running.png",width:100%),[
+#box(fill:luma(230),inset:5pt,radius:5pt,text(size:18pt)[ *lowest dimensional* Weinberg-like operator *$O_1^((n))$ dominates* due to power counting ])
+
+1. Are there examples where $O_1^prime$ dominates over $O_1$?
+
+2. Why is it meaningful to consider general $Delta L=2$ operators?
+
+])
+
+]
+
+
+== Example for Weinberg-like operator
+#slide[
+#grid(columns: (2fr,3fr),inset:5pt,
+[
+  - new particles #h(1cm)  
+    - vector-like lepton $Sigma tilde (1,3,1)$
+    - scalar $Phi tilde (1,4,3/2)$
+$
+Sigma & = (Sigma^(++), Sigma^+, Sigma^0) \
+Phi & = (Phi^(+++), Phi^(++), Phi^+, Phi^0)
+$
+#image("BabuD7.png",width:100%)
+#place(bottom+left,dy:-1cm,dx:2cm,text(gray)[Babu+ [0905.2710]])
+],
+[
+  - Lagrangian 
+  $
+  cal(L) = overline(Sigma^c) Y L tilde(H) + overline(Sigma)  Phi overline(Y) L + lambda_5 H^3 Phi + hc
+  $
+
+- neutrinos mass
+  - Weinberg operator not generated at tree level
+  - Dimension-7 operator $O_1^prime$ generated at tree level
+$
+m_nu = (lambda_5 v^4)/(4 M_Phi^2 M_Sigma) (Y overline(Y)^T + overline(Y) Y^T)  
+$
+
+#pause 
+- Weinberg operator generated at 1-loop level via topology T3 $arrow.r$ #text(hl1)[becomes important for large $M_Phi,M_Sigma$]
+
+#pause
+- #text(hl2)[several highly charged particles at low scale]
+]
+)
+
+]
+
+== $Delta L=2$ operators
+#slide[
+#box(fill:luma(230),inset:10pt,radius:5pt,[
+*Why is it meaningful to consider general $Delta L=2$ operators?*
+])
+#pause
+- useful classification which 
+  - provides information about other SM particles and
+  - their other phenomenology
+
+- *caveat:* it generally requires requires to consider UV completions. The $Delta L=2$ operator only describes $Delta L=2$ processes
+] 
+
+== Dimension-7 $Delta L=2$ operators
+#slide[
+- Babu+ [hep-ph/0106054] classified $Delta L=2$ operators #text(gray)[(excl cov. derivatives, field strength tensors)] up to dimension-11 #text(gray)[(parentheses indicate isospin contractions)]
+$
+O_1^prime &= (L H) (L H) H^dagger H #h(1cm) 
+&
+O_2 &= (L L) (L H) overline(e) #h(1cm) 
+&
+O_(3a) &= (L L) (Q H) overline(d)
+ #h(1cm) 
+&
+O_(3b) &= (L Q) (L H) overline(d)
+ \
+O_(4a) &= (L Q^dagger) (L H) overline(u)^dagger
+&
+O_(4b) &= (L L) (Q^dagger H) overline(u)^dagger
+&
+O_8 & = L overline(e) overline(u) overline(d) H 
+$
+
+*minimal tree-level UV completions*
+
+- 2 viable topologies #text(gray)[(external solid lines can be both scalar or fermion)]
+#v(-5mm)
+#grid(columns: (6cm,1fr),inset:10pt,[
+  #image("dim7-top1.png",width:100%)
+  #image("dim7-top2.png",width:100%)],
+  [
+*generic comments*
+- singly charged scalar for $O_2$, $O_(3a)$, $O_(4b)$
+  - #text(hl3)[only small number of different particles (12)]
+  - #text(hl1)[allows to study their phenomenology and apply to models]
+- $O_1^prime$ only generated via 2nd topology (see above)
+- #text(hl2)[Isospin structure prevents 1-loop neutrino masses for $O_(3a)$ and $O_(4b)$]
+- $O_8$ generates neutrino masses only at 2-loop order
+  ])
+]
+
+#slide[
+  #grid(columns: (1fr,1fr),inset:10pt,
+  [
+#image("O3a.png")
+#image("O3b.png")
+  ],[
+$
+O_(3a) &= (L L) (Q H) overline(d)
+ #h(1cm) 
+&
+O_(3b) &= (L Q) (L H) overline(d)
+$
+
+
+*generic comments*
+- #text(hl2)[Isospin structure prevents 1-loop neutrino masses for $O_(3a)$ and $O_(4b)$]
+#pause
+
+- Weinberg operator can be estimated by closing off the loops of the loop diagrams without specifying UV model
+
+- This is *NOT* an estimate within EFT, but the estimate for the size of the loop-induced Weinberg operator from matching of the UV theory.
+  ])
+
+
+
+]
+
+== Simple estimates for $Delta L = 2$ operators
+#slide[
+#image("explodingOperators0b.png")
+]
+
+#slide[
+#image("explodingOperators2.png")
+]
+
+== Simplified models
+#slide[
+  #grid(columns: (1.2fr,1fr), inset:10pt,
+  [ *$Delta L=2$ operators*
+  - general statements about $Delta L=2$ processes
+  - #text(hl2)[no information about other processes]
+  ],
+  [ *UV models*
+  - enables to study phenomenology
+  - #text(hl2)[too many models! not enough time] ]
+ )
+  #box(fill:luma(230),inset:10pt,radius:5pt,width:100%,[
+    Is it possible to combine the two approaches?
+   #pause
+    $arrow.r$ simplified models
+  ]) 
+#pause
+
+*Idea:*
+1. neutrino mass requires at least one new particle X (mass M) coupled to SM #text(gray)[lepton(s), carrying L (and maybe B)]
+2. QFT: $L$ is violated (by two units) via new operators at scale $Lambda$ which encode the (model-dependent) UV physics
+3. Majorana neutrino masses $m_nu prop Lambda^(-1)$ are generated
+4. $m_nu >0.05 "eV" \& M lt Lambda$ provide conservative upper bound on $M$
+5. $L$-conserving phenomenology mostly determined by renormalizable $Delta L=0$ operators
+]
+
+#slide[
+  #image("SimpModSummary2.png")
+#pause
+  #place(bottom+left,dx:7cm,dy:-1cm,rect(fill:hl1b,width:1cm,height:10cm,none))
+]

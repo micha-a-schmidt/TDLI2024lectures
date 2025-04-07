@@ -1,0 +1,347 @@
+#import "header.typ":*
+= Introduction
+
+== LH and RH neutrinos
+#slide[
+#grid(columns:(2fr,2fr), inset:10pt,
+[ 
+  #v(2cm)
+  
+  *In the Standard Model* there are only left-handed (LH) neutrinos which are part of electroweak lepton doublets $L_alpha$
+
+$ L_e  = vec( nu_e_L, e_L ) 
+#h(5mm)
+L_mu  = vec( nu_mu_L, mu_L ) 
+#h(5mm)
+L_tau  = vec( nu_tau_L, tau_L ) 
+$
+
+LH neutrinos are negative chirality states
+$ gamma_5 nu_L = - nu_L $ 
+For *massless neutrinos*, negative chirality states are negative helicity states
+
+],
+[
+  #image("SM.png",width:auto)
+#v(5mm)
+#box(fill:luma(230), radius:5pt, inset: 10pt,text(size:18pt)[ *helicity* of (anti)particles: $h^(\(v\)) =(-)1/2 bold(sigma) dot bold(hat(p))$])
+] 
+)
+]
+
+#slide[
+
+#grid(columns:(1fr,5cm),align: top,
+[ #v(1cm)
+*For massive neutrinos:*
+  
+  Negative chirality states have small admixture of positive helicity state.],
+diagram(spacing:11mm,
+  //edge((-1,0),"r","-|>-",$nu_alpha$), 
+  edge((-1,0),"r","-|>-"), 
+  edge((0,0),"ru", "wave",label-side:right), 
+  node((1.2,-0.7),$W$),
+  edge((0,0),"rd", "-|>-",label-side:right),
+  node((1.2,0.7),$ell_alpha$),
+  node((-1,0),$nu_alpha$),
+  ) 
+)
+
+#grid(columns:(1.3fr,1.0fr), 
+block(fill:luma(240),inset: 8pt, radius: 5pt, 
+[
+  #align(center)[*Dirac neutrinos*]
+#v(1cm)
+#grid(columns:5 , gutter: 10mm, align: center, 
+[],[],[helicity], [$ell^-$ prod.], [$ell^+$ prod.], 
+[$nu$], hel(-1), [$-1/2$], [1], [0], 
+[$overline(nu)$], hel(-1), [$-1/2$], [0], [ $(E / m)^2 << 1$], 
+[$nu$], hel(1), [$1/2$], [$(E/m)^2 <<1$], [0], 
+[$overline(nu)$], hel(1), [$1/2$], [0], [ 1], 
+)
+] ), 
+block(fill: color.hsl(180deg,70%,95%), radius: 5pt, inset: 8pt, 
+[
+  #align(center)[*Majorana neutrinos*]
+
+#align(center)[#text(hl3)[Neutrinos may be their own \ antiparticles, i.e. $nu = nu^c$]]
+#v(1cm)
+#grid(columns:4 , gutter: 10mm, align: center, 
+[],[helicity], [$ell^-$ prod.], [$ell^+$ prod.], 
+hel(-1), [$-1/2$], [1], [0], 
+hel(1), [$1/2$], [0], [ 1], 
+)
+
+])
+)
+]
+
+
+#slide[
+
+ When SM was formulated, neutrinos were conisdered massless $arrow.r$ RH neutrinos not needed
+ 
+ $ 
+ - cal(L) = overline(L_L) Phi Y_e e_R + overline(Q_L) Phi Y_d d_R + overline(Q_L) tilde(Phi) Y_u u_R + hc
+ #h(2cm)
+ "with" tilde(Phi) equiv epsilon Phi^*
+ $
+
+#text(hl1)[Neutrino masses may be introduced similar to charged fermions:  #h(1cm) 
+$ -cal(L)_nu = overline(L_L) tilde(Phi) Y_nu nu_R + hc $]
+
+#box(fill: luma(230),radius: 5pt, width:100%, inset:5pt,
+[
+*Q:* How do RH neutrinos transform with SM gauge group $"SU"(3)_c times "SU"(2)_L times U(1)_Y$?
+
+#pause
+
+They are *gauge singlets* $nu_R ~ (1,1,0)$.
+
+])
+
+
+#pause
+
+The number of RH neutrinos is *not* fixed. At least two RH neutrinos are required to explain the observed neutrino oscillations.
+
+// #pause
+
+// Explanation of observed neutrino masses requires tiny Yukawa couplings: $||Y_nu||<<||Y_e||$.
+
+ ] 
+
+== Dirac or Majorana neutrinos?
+#slide[
+A central question when discussing neutrinos is
+
+#align(center)[#text(hl1,size: 30pt)[ Dirac or Majorana neutrinos?]]
+
+Assume neutrino masses are generated like charged fermion masses. Then, after electroweak symmetry breaking
+$ - overline(L) tilde(Phi) Y_nu nu_R +hc xarrow(expval(Phi) = 1/sqrt(2) vec(0,v)) - overline(nu_L) M_nu^D nu_R +hc #h(1cm) "with" M_nu^D = Y_nu v/sqrt(2) $
+
+This is a #text(hl1)[Dirac mass term] and, thus, the neutrino is a #text(hl1)[Dirac particle] with 4 spinor components, 2 from $nu_L$ and 2 from $nu_R$, like all the charged fermions in the SM. 
+
+We can define the #text(hl1)[(total) lepton number]
+#grid(columns :(8cm,10cm,1fr,7cm),
+[], 
+box(fill:hl3b, inset:5pt,radius:5pt,
+[$ L = L_e + L_mu + L_tau $]),
+[],
+[$L_alpha$ are individual lepton numbers])
+]
+
+#slide[
+We can define the #text(hl1)[(total) lepton number]
+#grid(columns :(8cm,10cm,1fr,7cm),
+[], 
+box(fill:hl3b, inset:5pt,radius:5pt,
+[$ L = L_e + L_mu + L_tau $]),
+[],
+[$L_alpha$ are individual lepton numbers])
+
+#v(2cm)
+
+- All LH leptons and RH charged leptons have $L=+1$
+
+- All leptonic anti-particles have lepton number $L=-1$
+
+- Quarks, gauge bosons and the Higgs have lepton number $L=0$
+
+- All terms of the SM conserve lepton number, in particular
+ $ 
+ - cal(L) = overline(L_L) Phi Y_e e_R + overline(L_L) tilde(Phi) Y_nu nu_R + hc
+ $
+
+
+
+
+]
+
+
+#slide[
+
+Since neutrinos are electrically neutral and colorless, there is another possibility -- they can be their own antiparticles
+
+#grid(columns: (5cm,1fr,3cm,1fr), 
+[], 
+box(fill:hl3b, inset: 5pt,radius: 5pt, [$ nu = nu^c equiv C overline(nu)^T $]), 
+[],  [$C = i gamma^2 gamma^0$])
+
+  Such particles are called #text(hl3)[Majorana particles]: LH and RH neutrino fields are *not* independent
+$ 
+nu_L^c equiv (nu_L)^c 
+pause 
+= (P_L nu)^c 
+pause 
+= C overline(P_L nu)^T
+pause 
+= C gamma^0 P_L  nu^*
+pause 
+= P_R C gamma^0  nu^*
+= P_R nu^c
+$
+ A Majorana particle has only 2 independent components and not 4.
+
+Using this, we can write down a Majorana mass term
+$
+-cal(L) = 1/2 overline(nu_L^c) M_nu^M nu_L + hc
+#h(3cm)
+"with"
+#h(1cm)
+M_nu^M = (M_nu^M)^T
+$
+- any Majorana mass term *breaks* lepton number by two units: $Delta L=2$
+- it *cannot* arise from a renormalisable gauge invariant operator in the SM (see lecture 2)
+ // effective operator, Weinberg operator
+]
+
+== Neutrino interactions
+
+#slide[ 
+
+#grid(columns: (1fr,1fr), 
+[The charged lepton mass term is
+$ 
+-cal(L) supset overline(e_L) M_e e_R  + hc
+$
+],
+[
+  #set math.cases(reverse: true)
+  $ 
+  cases(e_L arrow.r L_e e_L , e_R arrow.r R_e e_R )
+  #h(5mm)
+  arrow.r.double 
+  #h(5mm)
+  M_e arrow.r L_e^dagger M_e R_e  = diag
+$
+] 
+)
+
+//#v(1cm)
+
+#grid(columns: (1fr,1fr),
+block(inset: 5pt, [ 
+  *Dirac neutrinos*
+$ 
+-cal(L) supset overline(nu_L) M_nu^D nu_R  + hc
+$
+  #set math.cases(reverse: true)
+  $ 
+  cases(nu_L arrow.r L_nu nu_L , 
+  nu_R arrow.r R_nu nu_R )
+  #h(2mm)
+  arrow.r.double 
+  #h(2mm)
+//  M_nu^D arrow.r 
+L_nu^dagger M_nu^D R_nu  = diag
+$
+
+]), 
+block(inset: 5pt, [
+#pause
+  *Majorana neutrinos*
+$ 
+-cal(L) supset overline(nu_L) M_M nu_L^c  + hc
+$
+  #set math.cases(reverse: true)
+
+  $ 
+  nu_L arrow.r L_nu nu_L 
+  #h(2mm)
+  arrow.r.double 
+  #h(2mm)
+//  M_nu^M arrow.r 
+L_nu^dagger M_nu^M L_nu^*  = diag
+$
+
+]), 
+)
+
+#meanwhile
+
+#grid(columns: (3fr,1fr), inset: 5pt, 
+[ $ cal(L) 
+& = -g/(2 sqrt(2)) W_mu^- overline(ell_L) gamma^mu nu_L 
+- g/(cos theta_w) Z_mu overline(nu_L)  gamma^mu nu_L \
+#pause
+& arrow.r -g/(2 sqrt(2)) W_mu^- overline(ell_L)  gamma^mu underbrace(L_e^dagger L_nu,U_"PMNS") nu_L 
+- g/(cos theta_w) Z_mu overline(nu_L)  gamma^mu  underbrace(L_nu^dagger L_nu,bold(1)) nu_L \ 
+$],
+
+diagram(spacing:12mm,
+  //edge((-1,0),"r","-|>-",$nu_alpha$), 
+  edge((-1,0),"r","-|>-"), 
+  edge((0,0),"ru", "wave",label-side:right), 
+  node((1.4,-0.7),$W,Z$),
+  edge((0,0),"rd", "-|>-",label-side:right),
+  node((1.4,0.7),$ell_alpha,nu_alpha$),
+  node((-1,0),$nu_alpha$),
+  )
+)
+
+// #set align(center)
+//  #image("old/old5-crop.svg", width: 21cm)
+]
+
+
+#slide[
+The *PMNS (Pontecorvo-Maki-Nakagawa-Sakata) mixing matrix* is defined as 
+
+    $ 
+    U_"UPMNS" =  L_e^dagger L_nu = 
+    mat(
+    U_(e 1), U_(e 2), U_(e 3) ; 
+    U_(mu 1), U_(mu 2), U_(mu 3) ; 
+    U_(tau 1), U_(tau 2), U_(tau 3) 
+    )
+    = underbrace(R_(23)(theta_(23)) U_(13)(theta_(13),delta) R_(12)(theta_(12)),hat(U)_"PMNS") P(alpha_1,alpha_2)
+    $
+    and relates the flavour eigenstates $hat(nu)_(L alpha)$ with the mass eigenstates $nu_(L i)$:
+    $ hat(nu)_(L alpha) = (U_"PMNS")_(alpha i) nu_(L i)$
+
+The PMNS matrix is parameterized in terms of 3 angles $theta_(i j)$ and 1 Dirac CP phase $delta$. For Majorana neutrinos there are 2 additional Majorana phases $alpha_i$.
+
+
+- $R_(i j)$  is a rotation in the i-j plane by $theta_(i j)$, similarly $U_(i j)$ with $plus.minus s_(1 3) arrow.r plus.minus s_(1 3) e^(minus.plus i delta)$, for example
+$ 
+U_(13) = mat( c_(13) , , s_(13) e^(-i delta); 
+, 1 , ; 
+-s_(13) e^(i delta), , c_(13))
+$
+- The Majorana phases $alpha_i$ are multiplied from the right as #h(1cm) $P=diag(e^(i/2 alpha_1), e^(i/2 alpha_2), 1)$
+]
+
+#slide[
+$ 
+U_"PMNS" 
+=mat(c_(12) c_(13) , s_(12) c_(13) , s_(13) e^(-i delta);
+-s_(12) c_(23) -c_(12) s_(23) s_(13) e^(i delta) , c_(12) c_(23) - s_(12) s_(23) s_(13) e^(i delta), s_(23) c_(13);
+s_(12) s_(23) - c_(12) c_(23) s_(13) e^(i delta), -c_(12) s_(23) - s_(12) c_(23) s_(13) e^(i delta), c_(23) c_(13))
+mat(e^(i/2 alpha_1),,;
+, e^(i/2 alpha_2), ;
+,,1)
+$
+#grid(columns: (1fr,1fr),inset:15pt,[
+  #v(-3mm)
+  Commonly, the mixing angles are denoted
+- solar mixing angle $theta_(12)~34 degree$
+- atmospheric mixing angle $theta_(23)~45 degree$
+- reactor mixing angle $theta_(13)~8.5 degree$
+
+#pause
+There is currently only a hint for a non-zero Dirac CP phase $delta$. It can also be expressed in terms of the *Jarlskog invariant*
+  #v(-3mm)
+$ J_"CP" = 1/8 sin(2 theta_(12)) sin(2 theta_(23)) sin(2theta_(13)) cos(theta_(13))sin(delta) $
+],
+[
+  #pause
+  If neutrinos are _Majorana particles_, there are two additional phases, the so-called *Majorana phases $alpha_i$*.  
+
+#text(luma(130))[If one of the neutrinos is massless, there is only one physical Majorana phase.
+]
+
+//#box(fill: luma(230),inset:10pt,radius:5pt)[ All parameters in the leptonic mixing matrix have been measured in neutrino oscillation experiments. ]
+])
+]
+

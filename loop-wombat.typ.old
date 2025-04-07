@@ -1,0 +1,92 @@
+#import "header.typ":*
+
+
+= Radiative neutrino mass models
+
+== Zee model
+#slide[
+#grid(columns:(1fr,1fr),inset:5pt, 
+[ 
+$ y overline(e_R) phi^dagger L + mu h^(+*) H phi $
+], image("Zee.png"))
+// #image("old/old30-crop.svg", width: 21cm)
+
+]
+
+#slide[
+#image("singly-charged.png")
+
+]
+
+
+== Zee-Babu model
+#slide[
+#grid(columns: (1fr,1fr), inset:5pt, 
+[ $ g overline(e_R^c) e_R k^(++) + mu k^(++dagger) h^+ h^+ $
+],image("ZeeBabu.png")
+)
+
+]
+
+
+== Scotogenic model
+#slide[
+#image("scotogenic.png")
+
+
+]
+
+#slide[ 
+  How many loops is enough?
+
+]
+
+== SMEFT operator dimension and $B-L$ violation
+#slide[
+
+]
+
+== $Delta L=2$ operators
+#slide[
+ #image("DL2ops.svg", width: 21cm)
+]
+
+
+
+== Effective field theory
+#slide[ 
+#image("running.png")
+
+]
+
+
+
+
+== Loop-level UV completions of Weinberg operator
+
+#slide[
+#image("topologies-1loop.png")
+#image("topologies-1loop0.png")
+#image("topologies-1loop1.png")
+
+]
+
+// #slide[
+// #image("jungle.jpg")
+
+// ]
+
+== UV completions of $Delta L=2$ operators
+#slide[
+light fields in UV completion of Weinberg operator
+
+#image("dim7-top1.png")
+#image("dim7-top2.png")
+
+#image("O2.png")
+#image("O3a.png")
+#image("O3b.png")
+#image("O8.png")
+
+]
+

@@ -1,0 +1,192 @@
+#import "@preview/touying:0.4.2": *
+#import "@preview/pinit:0.1.4": *
+#import "@preview/cetz:0.2.2"
+#import "@preview/fletcher:0.4.4" as fletcher: node, edge
+//#import "@preview/mitex:0.2.3": *
+
+
+// cetz and fletcher bindings for touying
+#let cetz-canvas = touying-reducer.with(reduce: cetz.canvas, cover: cetz.draw.hide.with(bounds: true))
+#let fletcher-diagram = touying-reducer.with(reduce: fletcher.diagram, cover: fletcher.hide)
+
+// #let s = themes.metropolis.register(aspect-ratio: "16-9", footer: self => self.info.institution)
+// #let (init, slides) = utils.methods(s)
+// #show: init
+
+// #let (slide, empty-slide) = utils.slides(s)
+// #show: slides.with(title-slide: false, outline-slide: false)
+
+
+#set text(size: 12pt)
+
+#let s = themes.simple.register(aspect-ratio: "16-9", 
+  footer: [Michael Schmidt, UNSW])
+#let (init, slides) = utils.methods(s)
+#show: init
+// A function to represent a virtual image
+
+// #let vimg(body) = {
+//     rect(width: 10mm, height: 5mm)[
+//         #text(body)
+//     ]
+// }
+
+#let (slide, empty-slide, title-slide, centered-slide, focus-slide) = utils.slides(s)
+#show: slides
+
+
+#title-slide[
+ = Introduction to Neutrino Physics
+  #v(2em)
+  Michael Schmidt
+
+  UNSW Sydney 
+
+  23 Sep 2024  
+#place(
+  bottom + right,
+//  square(width: 1cm,
+//  stroke: 2pt + blue)
+  image("unsw.png")
+)
+]
+
+
+== LH and RH neutrinos
+
+#slide[ 
+In the SM neutrinos exist only as LH
+and form with the corresponding charged lepton a doublet of $"SU"(2)_L$
+
+$
+  L_L_1 = vec(nu_e_L, e_L), #h(1em)
+  L_L_2 = vec(nu_mu_L, mu_L),  #h(1em)
+  L_L_3 = vec(nu_tau_L, tau_L)
+$
+
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 3pt,
+  [LH neutrinos are negative
+  chirality states 
+  
+  $gamma_5 nu_L = - nu_L$
+
+  helicity
+
+  $h=bold(sigma) dot.op bold(hat(p))$
+  
+  For massless neutrinos:
+Negative chirality states are
+also negative helicity states.
+  ],
+  [ SM particle content ]
+)
+]
+
+For massive neutrinos:
+Negative chirality states have small admixture of positive helicity state.
+
+
+#focus-slide[
+  _Focus!_
+
+  This is very important.
+]
+
+= Let's start a new section!
+
+== Dynamic slide
+
+#slide[
+  Did you know that...
+
+  #pause
+
+  ...you can see the current section at the top of the slide?
+] 
+
+  == test
+#slide[
+
+  #grid(
+        columns: (1fr,2fr) ,     // 2 means 2 auto-sized columns
+        gutter: 2mm,    // space between columns
+        image("unsw.png"),
+        [ 
+  A simple #pin(1)highlighted text#pin(2).
+
+#pinit-highlight(1, 2)
+
+#pinit-point-from(2)[It is simple.]
+]
+
+    )
+
+#show raw: it => {
+  show regex("pin\d"): it => pin(eval(it.text.slice(3)))
+  it
+}
+
+`print(pin1"hello, world"pin2)`
+
+#pinit-highlight(1, 2)
+]
+
+
+
+
+// cetz animation
+#slide[
+  Cetz in Touying:
+
+  #cetz-canvas({
+    import cetz.draw: *
+    
+    rect((0,0), (5,5))
+
+    (pause,)
+
+    rect((0,0), (1,1))
+    rect((1,1), (2,2))
+    rect((2,2), (3,3))
+
+    (pause,)
+
+    line((0,0), (2.5, 2.5), name: "line")
+  })
+]
+
+// fletcher animation
+#slide[
+  Fletcher in Touying:
+
+  #fletcher-diagram(
+    node-stroke: .1em,
+    node-fill: gradient.radial(blue.lighten(80%), blue, center: (30%, 20%), radius: 80%),
+    spacing: 4em,
+    edge((-1,0), "r", "-|>", `open(path)`, label-pos: 0, label-side: center),
+    node((0,0), `reading`, radius: 2em),
+    edge((0,0), (0,0), `read()`, "--|>", bend: 130deg),
+    pause,
+    edge(`read()`, "-|>"),
+    node((1,0), `eof`, radius: 2em),
+    pause,
+    edge(`close()`, "-|>"),
+    node((2,0), `closed`, radius: 2em, extrude: (-2.5, 0)),
+    edge((0,0), (2,0), `close()`, "-|>", bend: -40deg),
+  )
+]
+
+#slide[#import "@preview/mitex:0.2.3": *
+
+Write inline equations like #mi("x") or #mi[y].
+
+Also block equations (this case is from #text(blue.lighten(20%), link("https://katex.org/")[katex.org])):
+
+#mitex(`
+  \newcommand{\f}[2]{#1f(#2)}
+  \f\relax{x} = \int_{-\infty}^\infty
+    \f\hat\xi\,e^{2 \pi i \xi x}
+    \,d\xi
+`)]

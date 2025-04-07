@@ -1,0 +1,436 @@
+#import "header.typ":*
+= Neutrino oscillations
+== Basic picture
+#slide[
+
+#align(center,canvas(length: 1cm, {
+  import draw:*
+  import decorations:*
+  rect((0,-2),(4,2),fill:hl1b,stroke:none,radius:10pt,name:"source")
+  rect((16,-2),(19,2),fill:hl2b,stroke:none,radius:10pt,name:"detector")
+//  line((0,0),(2,0),stroke: (paint:black,thickness: 2pt),mark: (end:">"))
+  line("source.east","detector.west",stroke:(paint:black,thickness:3mm),mark:(end:">"),name:"line")
+  content("source.center",[source])
+  content("detector.center",[detector])
+  content("detector.south",anchor:"north",padding: 10pt, box(width:4cm,[#set align(center)
+  flavour 
+  eigenstates
+  $hat(nu)_(L beta)$]))
+   content("source.south",anchor:"north", padding: 10pt, box(width:4cm,[#set align(center)
+  flavour 
+  eigenstates
+  $hat(nu)_(L alpha)$]))
+   content("line.mid",anchor:"north",padding:10pt,[ mass 
+  eigenstates
+  $nu_(L i)$])
+
+  wave(line((0,3.5), (1.5,3.5),stroke:(thickness:2pt),name:"W"),amplitude:0.25,tension:0.5)
+  line((1.5,3.5),(2.5,4.5),stroke:(thickness:1pt))
+  line((1.5,3.5),(2,4),stroke:(thickness:1pt),mark:(end:">"))
+  line((1.5,3.5),(2.5,2.5),stroke:(thickness:1pt))
+  line((2.5,2.5),(2,3),stroke:(thickness:1pt),mark:(end:">"))
+
+  content((-0.5,3.5),[W])
+  content((3,4.5),[$hat(nu)_alpha$])
+  content((3,2.5),[$overline(ell)_alpha$])
+
+
+  line((16,3.5), (17.5,3.5),stroke:(thickness:1pt))
+  line((16,3.5),(17,3.5),stroke:(thickness:1pt),mark:(end:">"))
+  line((17.5,3.5),(18.5,4.5),stroke:(thickness:1pt))
+  line((17.5,3.5),(18,4),stroke:(thickness:1pt),mark:(end:">"))
+  wave(line((17.5,3.5),(18.5,2.5),stroke:(thickness:1pt)),tension:50%, amplitude:0.25)
+  content((19,2.5),[W])
+  content((19,4.5),[$ell_beta$])
+  content((15.5,3.5),[$hat(nu)_beta$])
+
+// diagram(spacing:11mm,
+//   edge((-1,0),"r","-|>-"), 
+//   edge((0,0),"ru", "wave",label-side:right), 
+//   node((1.2,-0.7),$W$),
+//   edge((0,0),"rd", "-|>-",label-side:right),
+//   node((1.2,0.7),$ell_alpha$),
+//   node((-1,0),$nu_alpha$),
+//   ) 
+// )
+
+
+}
+)
+)
+Neutrinos are produced and detected as flavour eigenstates and propagate as mass eigenstates.
+
+#text(gray)[The same picture applies for antineutrinos.]
+
+ //#set align(center)
+ //#image("old/old4-crop.svg", width: 21cm)
+]
+
+
+== Two-flavour oscillations
+#slide[
+We consider *two-flavour neutrino oscillations in vacuum*.  The PMNS matrix is parameterised by one angle $theta$ and possibly a Majorana phase $alpha$
+$ 
+U_("PMNS") 
+= mat(c_theta,s_theta; -s_theta, c_theta) mat(e^(i/2 alpha),;,1) 
+$
+
+We denote the *flavour* eigenstate $nu_(L e)$ and $nu_(L mu)$ and the *mass* eigenstates $nu_(L 1)$ and $nu_(L 2)$:
+$
+ket(nu_(L e)) & = c_theta e^(i/2 alpha) ket(nu_(L 1)) +s_theta ket(nu_(L 2)) \
+ket(nu_(L mu)) & = -s_theta e^(i/2 alpha) ket(nu_(L 1)) +c_theta ket(nu_(L 2)) 
+$ 
+#pause
+We use *plane waves in quantum mechanics* for the calculation of neutrino oscillations. 
+
+#pause 
+
+#box(fill:hl1b, inset:10pt,radius:5pt,[ 
+  *What is the probability to detect a muon neutrino $nu_(L mu)$ in the detector if the source produced an electron neutrino $nu_(L e)$?*]
+)
+
+]
+
+#slide[
+#grid(columns: (1fr,1fr), inset:10pt,
+[
+  The probability to detect $nu_(L mu)$ at time $T$ from a $nu_(L e)$ produced in the source is
+  $
+  P(nu_e arrow.r nu_mu) = |braket(nu_(L mu),nu_(L e)(T))|^2
+  $
+  ],
+box(fill:luma(230),inset:10pt,radius:5pt,[ #align(center)[*flavour eigenstates* ]
+$
+ket(nu_(L e)) & = c_theta e^(i/2 alpha) ket(nu_(L 1)) +s_theta ket(nu_(L 2)) \
+ket(nu_(L mu)) & = -s_theta e^(i/2 alpha) ket(nu_(L 1)) +c_theta ket(nu_(L 2)) 
+$ ]
+)
+)
+#pause
+In the mass basis the Hamiltonian is diagonal and thus time evolution is described by  
+$ ket(nu_(L i)(t)) = e^(-i E_i t) ket(nu_(L i)) $ 
+
+Hence we find for the time-evolved electron neutrino state 
+$
+ket(nu_(L e)(t)) & = c_theta e^(i/2 alpha) e^(-i E_1 t)ket(nu_(L 1)) +s_theta e^(-i E_2 t)  ket(nu_(L 2)) 
+//ket(nu_(L mu)(t)) & = -s_theta e^(i/2 alpha) e^(-i E_1 t)ket(nu_(L 1)) +c_theta e^(-i E_2 t) ket(nu_(L 2)) 
+$ 
+#pause
+and consequently the probability amplitude is 
+$
+braket(nu_(L mu),nu_(L e)(T)) =(-s_theta e^(-i/2 alpha) bra(nu_(L 1)) + c_theta bra(nu_(L 2)))
+(c_theta e^(i/2 alpha) e^(-i E_1 T)ket(nu_(L 1)) +s_theta e^(-i E_2 T)  ket(nu_(L 2)) ) 
+$
+// #set align(center)
+// #image("old/old6-crop.svg", width: 21cm)
+]
+#slide[
+ The probability amplitude is 
+$
+braket(nu_(L mu),nu_(L e)(T)) =(-s_theta e^(-i/2 alpha) bra(nu_(L 1)) + c_theta bra(nu_(L 2)))
+(c_theta e^(i/2 alpha) e^(-i E_1 T)ket(nu_(L 1)) +s_theta e^(-i E_2 T)  ket(nu_(L 2)) ) 
+$
+Using orthogonality of the mass eigenstates $braket(nu_(L i),nu_(L j))= delta_(i j)$ we find
+#pause
+$
+braket(nu_(L mu),nu_(L e)(T)) =-s_theta c_theta e^(-i E_1 T)+ c_theta  s_theta e^(-i E_2 T)
+$
+#text(hl1)[Note that the Majorana phase $alpha$ dropped out!] This is a general result: Majorana phases generally drop out since they always show up together with a mass eigenstate $e^(i/2 alpha_i) ket(nu_(L i))$ and thus drop out of the probability amplitude due to the orthogonality of the mass eigenstates.
+
+
+#pause
+The oscillation probability is thus given by
+$
+P(nu_e arrow.r nu_mu) &= |
+-s_theta c_theta e^(-i E_1 T)+ c_theta  s_theta e^(-i E_2 T)|^2 \ 
+#pause
+& = s_theta^2 c_theta^2 | 1- e^(-i (E_2 -E_1) T) |^2 
+$
+]
+
+#slide[
+//We further rewrite the oscillation probability
+$
+P(nu_e arrow.r nu_mu) 
+& = s_theta^2 c_theta^2 | 1- e^(-i (E_2 -E_1) T) |^2 \
+#pause
+& = (sin^2(2theta))/4 ( 2- 2 cos(2 ((E_2 -E_1) T)/2))  \
+#pause
+& = sin^2(2theta) 
+//s_theta^2 c_theta^2 
+ sin^2(((E_2 -E_1) T)/2)  \
+//#pause
+//& = sin^2(2theta) sin^2(((E_2 -E_1) T)/2)  
+$
+In the ultra-relativistic limit ($E>>m_i$), the neutrino energy difference  
+$ 
+E_2-E_1 = sqrt(bold(p)_2^2 + m_2^2) - sqrt(bold(p)_1^2+m_1^2) tilde.equiv (m_2^2-m_1^2)/(2 E) equiv (Delta m_21^2)/ (2E)
+#h(5mm) "using" #h(5mm)
+E tilde.eq E_i tilde.eq |bold(p)_i|
+$
+#pause
+Thus the oscillation probability becomes ($T tilde.equiv L$)
+$
+P(nu_e arrow.r nu_mu) 
+& = sin^2(2theta) sin^2( (Delta m_(21)^2 L )/( 4 E))
+#pause
+= sin^2(2theta) sin^2(1.27 (Delta m_(21)^2 ["eV"^2] L ["km"])/(E ["GeV"]))  
+$
+// #set align(center)
+// #image("old/old7-crop.svg", width: 21cm)
+]
+
+#slide[
+$
+P(nu_e arrow.r nu_mu) 
+& = sin^2(2theta) sin^2( (Delta m_(21)^2 L )/( 4 E))
+//#pause
+//= sin^2(2theta) sin^2(1.27 (Delta m_(21)^2 ["eV"^2] L ["km"^2])/(E ["GeV"]))  
+$
+*Non-zero oscillation probability requires*
+- non-zero mass squared difference $Delta m_(21)^2$
+  - there is no flavour change for *vanishing or degenerate masses*
+#pause
+- non-zero mixing angle $theta$, i.e. neutrino flavour eigenstates cannot be and mass eigenstates
+#pause
+- a finite distance $L$ between source and detector
+
+Maximum flavour conversion probability may be reached for *maximal mixing $theta=pi/4$*
+
+Conservation of probability implies #text(hl1)[$P(nu_e arrow.r nu_e)+ P(nu_e arrow.r nu_mu)  =1$] and thus
+$
+P(nu_e arrow.r nu_e) = 1- P(nu_e arrow.r nu_mu) 
+= 1-sin^2(2theta) sin^2( (Delta m_(21)^2 L )/( 4 E))
+$
+#text(gray)[Similar expressions are obtained for the other oscillation probabilities with $nu_e arrow.l.r nu_mu$]
+]
+
+
+#slide[ 
+#grid(columns: (70%,1fr), align: center,
+  [ 
+  #image("nuosc2.png",width:100%)],
+  [
+ - oscillation probability
+#box(fill: luma(230), radius:5pt,inset:5pt,
+[ #set text(size: 16pt) 
+$
+P(nu_e &arrow.r nu_mu) \ 
+& = sin^2(2theta) sin^2( (Delta m_(21)^2 L )/( 4 E))
+$])
+    - 1st oscillation maximum 
+    $ L_"max" = (2 pi E)/(Delta m_(21)^2) $
+    - maximum osc probability
+    $ P_"max" = sin^2(2theta) $
+    
+  ])
+]
+
+#slide[ 
+ - degeneracies
+ $ 
+ Delta m_(21)^2 & arrow.r - Delta m_(21)^2
+ #h(5mm) 
+"and"
+#h(5mm)
+ theta & arrow.r pi/2 - theta
+ $
+
+#pause 
+- CPT: #text(hl1)[Always preserved]
+ $ P(nu_alpha arrow.r nu_beta)=P(overline(nu)_beta arrow.r overline(nu)_alpha) $ 
+#pause
+- CP: #text(hl1)[For 2-flavours always preserved]
+$ P(nu_alpha arrow.r nu_beta) = P(overline(nu)_alpha arrow.r overline(nu)_beta) $ 
+#pause 
+- T: #text(hl1)[CP conservation $arrow.l.r$ T conservation]
+$ 
+P(nu_alpha arrow.r nu_beta) = P(nu_beta arrow.r nu_alpha)
+$
+#pause
+- (Total) lepton number is preserved in neutrino oscillations
+][
+  #meanwhile
+//#place(top+right,
+#box(fill: luma(230), radius:5pt,inset:5pt,
+[ #align(left)[*oscillation probability*]
+$
+P(nu_e arrow.r nu_mu) 
+ = sin^2(2theta) sin^2( (Delta m_(21)^2 L )/( 4 E))
+$]
+)
+
+- antineutrinos
+$
+ket(overline(nu)_(L e)) & = c_theta e^(-i/2 alpha) ket(overline(nu)_(L 1)) +s_theta ket(overline(nu)_(L 2)) \
+ket(overline(nu)_(L mu)) & = -s_theta e^(-i/2 alpha) ket(overline(nu)_(L 1)) +c_theta ket(overline(nu)_(L 2)) 
+$ 
+#pause
+#uncover("6-", [
+  
+  - if oscillation length $<$ position uncertainty in source/detector
+consider *average probability*
+$
+P(nu_e arrow.r nu_mu) = 1/2 sin^2(2theta)
+$
+])
+
+ ]
+
+
+== Three-flavour oscillations in vacuum
+#slide[
+The *three-flavour neutrino oscillation probability* can be compactly written as
+$ 
+P(nu_alpha arrow.r nu_beta) = delta_(alpha beta) 
+- 4 sum_(i<j)  "Re"(U_(alpha i)^* U_(beta i) U_(alpha j) U_(beta j)^*)&  sin^2((Delta m_(i j)^2 L)/(4E)) \
+& 
+- 2 sum_(i<j) "Im"(U_(alpha i)^* U_(beta i) U_(alpha j) U_(beta j)^*) sin^2((Delta m_(i j)^2 L)/(2E))
+$
+#place(bottom+left,
+[ 
+  #image( "nuosc3.png",width:14cm)
+#v(-5mm)
+#text(gray,size: 14pt)[\[Wolfram neutrino oscillations demonstration\]]
+])
+]
+
+#slide[
+$ 
+P(nu_alpha arrow.r nu_beta) = delta_(alpha beta) 
+&- 4 sum_(i<j) "Re"(U_(alpha i)^* U_(beta i) U_(alpha j) U_(beta j)^*) sin^2((Delta m_(i j)^2 L)/(4E)) \
+&- 2 sum_(i<j) "Im"(U_(alpha i)^* U_(beta i) U_(alpha j) U_(beta j)^*) sin^2((Delta m_(i j)^2 L)/(2E))
+$
+#grid(columns: (1fr,1fr),inset:5pt, 
+[
+- first line same for $P(overline(nu)_alpha arrow.r overline(nu)_beta)$
+#pause
+
+- third term describes *CP violation*
+$ 
+&P(overline(nu)_alpha arrow.r overline(nu)_beta ) - P(nu_alpha arrow.r nu_beta) \ 
+&= 4 sum_(i<j) "Im"(U_(alpha i)^* U_(beta i) U_(alpha j) U_(beta j)^*) sin^2((Delta m_(i j)^2 L)/(2E))
+$
+#pause 
+
+- no CP violation if $alpha=beta$
+],
+[
+ #uncover("3-",[ 
+ *CP violation in lepton sector can be much larger than in quark sector!*
+  $
+  J_"CP"^"quark" &= (3.12^(+0.13)_(-0.12)) dot 10^(-5) \
+  J_"CP"^"lepton" &= (3.31 - 3.35) dot 10^(-2) sin(delta) 
+  $
+ ])
+#meanwhile
+ #box(fill:luma(230),inset:5pt,radius:5pt,
+ [*Jarlskog invariant*
+#set text(size:16pt)
+$
+J_"CP" = 1/8 sin(2 theta_(12)) sin(2 theta_(23)) sin(2 theta_(13)) cos(theta_(13)) sin(delta)
+$
+ ])
+]
+)
+]
+
+
+
+== Matter effect
+#slide[ 
+- Effective vacuum Hamiltonian is diagonal in mass basis
+$ 
+H^((m))_"vac" = U_"PMNS"^dagger H^((f))_"vac" U_"PMNS" = (M_nu^dagger M_nu) /(2E) equiv M^2/(2E)
+#h(7cm)
+$
+- Electroweak interactions generate an effective potential for neutrinos
+- Hamiltonian in flavour basis is
+$
+H^((f)) = H^((f))_"vac" + V^((f))
+#h(7cm)
+$
+- effective potential from NC interactions is flavour universal
+$arrow.r$ no effect #text(gray)[unless there are light sterile $nu$'s]
+- matter potential due to electron density $n_e$
+$
+V_(e e)^((f)) = plus.minus sqrt(2) G_F n_e(x)
+#h(7cm)
+$
+- vacuum mass eigenstates are not eigenstates of Hamiltonian in matter
+$arrow.r$ need to find mass eigenstates for neutrinos in matter
+
+#place(top+right,[ #image("CC2.png",width:6cm) #image("NC2.png",width:6cm) ] )
+
+ //#set align(center)
+// #image("old/old11-crop.svg", width: 21cm)
+]
+
+#slide[
+- find mass eigenstates of neutrino Hamiltonian in matter
+$
+H^((f)) = H^((f))_"vac" + V^((f))
+#h(2cm) "with" #h(2cm)
+V_(e e)^((f)) = plus.minus sqrt(2) G_F n_e(x)
+$
+- define mixing matrix $tilde(U)$ with
+$ 
+nu^((f))(x) = tilde(U)(x) tilde(nu)^((m))(x)
+#h(2cm)"and" #h(2cm)
+H^((f)) = 1/(2E) tilde(U)(x) tilde(M)^2 tilde(U)^dagger (x)
+$ 
+#pause
+- neutrino propagation is described by 
+ $
+ i (dif tilde(nu)^((m)))/(dif x) = [ tilde(M)^2/(2E) - i tilde(U)^dagger (x) (dif tilde(U)(x))/(dif x)] tilde(nu)^((m))(x) 
+ $
+- the second term describes the change of mass eigenstates. It can be neglected, if the matter potential is slowly varying $L=(4 pi E)/(Delta tilde(M)^2)<< ( (dif ln n_e(x))/(dif x))^(-1)$. 
+- This is called _adiabatic approximation_. In this approximation, we observe unitary evolution and the magnitude of the mass eigenstates remains unchanged.
+
+ //#image("old/old12-crop.svg", width: 21cm)
+]
+
+//=== Adiabatic approximation
+#slide[
+- in the adiabatic approximation neutrino propagation is described by 
+ $
+ i (dif tilde(nu)^((m)))/(dif x) =  tilde(M)^2/(2E)  tilde(nu)^((m))(x) 
+ $
+- Effective neutrino mixing angle and mass squared difference in matter
+$
+sin(2tilde(theta)) = sin(2 theta)/sqrt(sin^2(2theta)+C^2)
+#h(2cm) "and" #h(2cm)
+Delta tilde(m)^2 = Delta m^2 sqrt(sin^2(2theta) + C^2)
+$
+with the parameter $C(x)= cos(2theta) - (2sqrt(2) G_F n_e (x) E)/(Delta m^2)$ 
+#pause
+- Matter effect breaks degeneracies
+$ 
+Delta m^2 arrow.r.not -Delta m^2
+#h(2cm) "and" #h(2cm)
+theta arrow.r.not pi/2-theta
+$
+]
+
+#slide[
+#box(fill:luma(230),inset:10pt,radius:5pt,width:100%, 
+[ Effective neutrino mixing angle and mass squared difference in matter
+$
+sin(2tilde(theta)) = sin(2 theta)/sqrt(sin^2(2theta)+C^2)
+#h(2cm) "and" #h(2cm)
+Delta tilde(m)^2 = Delta m^2 sqrt(sin^2(2theta) + C^2)
+$
+with the parameter $C(x)= cos(2theta) - (2sqrt(2) G_F n_e (x) E)/(Delta m^2)$ 
+]
+)
+#v(1cm)
+
+Mikheyev-Smirnov-Wolfenstein (MSW) resonance occurs for #text(hl1)[$C(x)=0$] or equivalently 
+$
+Delta m^2 cos(2theta) = 2 sqrt(2) G_F n_e (x) E
+$
+In this case the effective neutrino mixing angle becomes maximal #text(hl1)[$sin(2tilde(theta)) = 1$] and thus oscillations are maximally efficient.
+
+]
+
+
